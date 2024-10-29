@@ -1,0 +1,472 @@
+{
+	"openapi": "3.0.0",
+	"info": {
+		"title": "Warehouse Products API",
+		"version": "1.0.0",
+		"description": "API for managing products in a warehouse, with user authentication using JWT."
+	},
+	"servers": [
+		{
+			"url": "http://localhost:3000",
+			"description": "Local server"
+		}
+	],
+	"tags": [
+		{
+			"name": "Auth",
+			"description": "Endpoints related to user authentication"
+		},
+		{
+			"name": "Products",
+			"description": "Endpoints related to product management"
+		},
+		{
+			"name": "Public",
+			"description": "Endpoints without need to Authentication"
+		},
+		{
+			"name": "Protected",
+			"description": "Endpoints need to Authenticate before using theme"
+		}
+	],
+	"paths": {
+		"/auth/register": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "Register a new user",
+				"description": "Create a new user with a username and password.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/RegisterUser"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "User registered successfully"
+					},
+					"400": {
+						"description": "User already exists"
+					}
+				}
+			}
+		},
+		"/auth/login": {
+			"post": {
+				"tags": ["Auth"],
+				"summary": "Login a user",
+				"description": "Login with a username and password, and receive a JWT token.",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/LoginUser"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "User logged in successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/LoginResponse"
+								}
+							}
+						}
+					},
+					"400": {
+						"description": "Invalid credentials"
+					}
+				}
+			}
+		},
+		"/products": {
+			"get": {
+      "tags": ["Public", "Products"],
+      "summary": "Get all products with pagination and search",
+      "description": "Retrieve all products with optional pagination and search filters (name, price range).",
+      "parameters": [
+        {
+          "name": "page",
+          "in": "query",
+          "description": "Page number for pagination (must be 1 or higher).",
+          "schema": {
+            "type": "integer",
+            "default": 1,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "limit",
+          "in": "query",
+          "description": "Number of products per page (must be 1 or higher).",
+          "schema": {
+            "type": "integer",
+            "default": 10,
+            "minimum": 1
+          }
+        },
+        {
+          "name": "name",
+          "in": "query",
+          "description": "Filter products by name (case-insensitive search).",
+          "schema": {
+            "type": "string"
+          }
+        },
+        {
+          "name": "minPrice",
+          "in": "query",
+          "description": "Filter by minimum price.",
+          "schema": {
+            "type": "number"
+          }
+        },
+        {
+          "name": "maxPrice",
+          "in": "query",
+          "description": "Filter by maximum price.",
+          "schema": {
+            "type": "number"
+          }
+        }
+      ],
+      "responses": {
+        "200": {
+          "description": "A paginated list of products with optional filters applied.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "totalProducts": {
+                    "type": "integer",
+                    "description": "Total number of products matching the filters."
+                  },
+                  "page": {
+                    "type": "integer",
+                    "description": "Current page number."
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "description": "Number of products per page."
+                  },
+                  "totalPages": {
+                    "type": "integer",
+                    "description": "Total number of pages."
+                  },
+                  "data": {
+                    "type": "array",
+                    "items": {
+                      "$ref": "#/components/schemas/Product"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "400": {
+          "description": "Invalid page, price range, or other query parameters.",
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "message": {
+                    "type": "string",
+                    "example": "Page 10 is out of bounds. There are only 5 pages."
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+			"post": {
+				"tags": ["Products", "Protected"],
+				"summary": "Create a new product",
+				"security": [
+					{
+						"BearerAuth": []
+					}
+				],
+				"description": "Add a new product to the warehouse (requires authentication)",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/NewProduct"
+							}
+						}
+					}
+				},
+				"responses": {
+					"201": {
+						"description": "Product created successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Product"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized, token missing or invalid"
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Products", "Protected"],
+				"summary": "Delete multiple products",
+				"security": [
+					{
+						"BearerAuth": []
+					}
+				],
+				"description": "Delete products by an array of product IDs (requires authentication)",
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/DeleteProducts"
+							}
+						}
+					}
+				},
+				"responses": {
+					"204": {
+						"description": "Products deleted successfully"
+					},
+					"401": {
+						"description": "Unauthorized, token missing or invalid"
+					}
+				}
+			}
+		},
+		"/products/{id}": {
+			"get": {
+				"tags": ["Public", "Products"],
+				"summary": "Get product by ID",
+				"description": "Get a product by its ID",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						},
+						"description": "The UUID of the product to retrieve"
+					}
+				],
+				"responses": {
+					"200": {
+						"description": "A single product",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Product"
+								}
+							}
+						}
+					},
+					"404": {
+						"description": "Product not found"
+					}
+				}
+			},
+			"put": {
+				"tags": ["Protected", "Products"],
+				"summary": "Update a product",
+				"security": [
+					{
+						"BearerAuth": []
+					}
+				],
+				"description": "Update an existing product by its ID (requires authentication)",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						},
+						"description": "The UUID of the product to update"
+					}
+				],
+				"requestBody": {
+					"required": true,
+					"content": {
+						"application/json": {
+							"schema": {
+								"$ref": "#/components/schemas/NewProduct"
+							}
+						}
+					}
+				},
+				"responses": {
+					"200": {
+						"description": "Product updated successfully",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Product"
+								}
+							}
+						}
+					},
+					"401": {
+						"description": "Unauthorized, token missing or invalid"
+					},
+					"404": {
+						"description": "Product not found"
+					}
+				}
+			},
+			"delete": {
+				"tags": ["Protected", "Products"],
+				"summary": "Delete a product by ID",
+				"security": [
+					{
+						"BearerAuth": []
+					}
+				],
+				"description": "Delete a product by its ID (requires authentication)",
+				"parameters": [
+					{
+						"name": "id",
+						"in": "path",
+						"required": true,
+						"schema": {
+							"type": "string",
+							"format": "uuid"
+						},
+						"description": "The UUID of the product to delete"
+					}
+				],
+				"responses": {
+					"204": {
+						"description": "Product deleted successfully"
+					},
+					"401": {
+						"description": "Unauthorized, token missing or invalid"
+					},
+					"404": {
+						"description": "Product not found"
+					}
+				}
+			}
+		}
+	},
+	"components": {
+		"schemas": {
+			"RegisterUser": {
+				"type": "object",
+				"required": ["username", "password"],
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					}
+				}
+			},
+			"LoginUser": {
+				"type": "object",
+				"required": ["username", "password"],
+				"properties": {
+					"username": {
+						"type": "string"
+					},
+					"password": {
+						"type": "string"
+					}
+				}
+			},
+			"LoginResponse": {
+				"type": "object",
+				"properties": {
+					"token": {
+						"type": "string",
+						"description": "JWT token for authenticating requests"
+					}
+				}
+			},
+			"Product": {
+				"type": "object",
+				"properties": {
+					"id": {
+						"type": "string",
+						"format": "uuid",
+						"description": "The unique UUID of the product"
+					},
+					"name": {
+						"type": "string",
+						"description": "The name of the product"
+					},
+					"price": {
+						"type": "number",
+						"description": "The price of the product"
+					},
+					"quantity": {
+						"type": "integer",
+						"description": "The quantity of the product in stock"
+					}
+				}
+			},
+			"NewProduct": {
+				"type": "object",
+				"required": ["name", "price", "quantity"],
+				"properties": {
+					"name": {
+						"type": "string",
+						"description": "The name of the product"
+					},
+					"price": {
+						"type": "number",
+						"description": "The price of the product"
+					},
+					"quantity": {
+						"type": "integer",
+						"description": "The quantity of the product in stock"
+					}
+				}
+			},
+			"DeleteProducts": {
+				"type": "object",
+				"properties": {
+					"ids": {
+						"type": "array",
+						"items": {
+							"type": "string",
+							"format": "uuid"
+						}
+					}
+				}
+			}
+		},
+		"securitySchemes": {
+			"BearerAuth": {
+				"type": "http",
+				"scheme": "bearer",
+				"bearerFormat": "JWT"
+			}
+		}
+	}
+}
