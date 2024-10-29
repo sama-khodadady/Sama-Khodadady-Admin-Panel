@@ -1,0 +1,45 @@
+:root {
+  --color-white: rgb(255, 255, 255);
+  --color-seasalt: rgb(248, 248, 248);
+  --color-plantinum: rgb(228, 228, 228);
+  --color-whiteSmoke: rgb(242, 242, 242);
+  --color-gainsboro: rgb(222, 222, 222);
+  --color-suvaGray: rgb(141, 141, 141);
+  --color-gray: rgba(51, 51, 51, 0.49);
+  --color-raisinBlack: rgb(40, 40, 40);
+  --color-black: rgba(0, 0, 0, 0.6);
+  --color-federalBlue: rgb(3, 4, 94);
+  --color-pictonBlue: rgb(58, 139, 237);
+  --color-softBlue: rgb(85, 163, 240);
+  --color-red: rgb(191, 6, 3);
+  --color-folly: rgb(244, 63, 94);
+
+  font-family: "Vazir", Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  line-height: 1.5;
+}
+
+body {
+  margin: auto;
+  max-width: 1400px;
+  min-height: 100vh;
+  padding: 10px;
+  background-color: var(--color-seasalt);
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: inherit;
+  color: inherit;
+}
+
+button,
+input,
+select {
+  font-family: inherit;
+}

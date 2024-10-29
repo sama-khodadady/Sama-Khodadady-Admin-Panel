@@ -1,0 +1,213 @@
+.admin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.admin .actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+  width: 1140px;
+  height: 68px;
+}
+
+.admin .actions .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 6px;
+}
+
+.admin .actions .title h2 {
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--color-raisinBlack);
+}
+
+.admin .actions .buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.admin .actions button {
+  width: 132px;
+  height: 45px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  color: var(--color-white);
+  background-color: var(--color-softBlue);
+  font-size: 1rem;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.admin .actions button:active {
+  transform: scale(0.95);
+}
+
+.admin .table {
+  width: 1140px;
+  height: 730px;
+  border-radius: 30px;
+  border: 1px solid var(--color-plantinum);
+  background-color: var(--color-white);
+}
+
+.admin .table table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.admin .table table thead {
+  height: 70px;
+  text-align: right;
+  background-color: var(--color-whiteSmoke);
+}
+
+.admin .table table thead th {
+  width: 85px;
+  padding-right: 50px;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--color-raisinBlack);
+}
+
+.admin .table table thead th:first-child {
+  border-top-right-radius: 30px;
+}
+
+.admin .table table thead th:last-of-type {
+  border-top-left-radius: 30px;
+}
+
+.admin .table table tbody tr {
+  border-bottom: 1px solid var(--color-plantinum);
+}
+
+.admin .table table tbody tr:last-child {
+  border: none;
+}
+
+.admin .table tbody .notfound td {
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+@media (max-width: 425px) {
+  .admin .actions,
+  .admin .table,
+  .admin .table table,
+  .admin .table table thead {
+    width: 100%;
+  }
+  .admin .actions {
+    margin-top: 2rem;
+    height: 40px;
+  }
+  .admin .actions .title {
+    gap: 2px;
+  }
+  .admin .actions .title h2 {
+    font-size: 14px;
+  }
+  .admin .actions .title img {
+    width: 16px;
+    height: 16px;
+  }
+  .admin .actions .buttons {
+    gap: 6px;
+  }
+  .admin .actions button {
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 10px;
+  }
+  .admin .table {
+    border-radius: 10px;
+    height: fit-content;
+  }
+  .admin .table table thead {
+    height: 40px;
+  }
+  .admin .table table thead th {
+    font-size: 8px;
+    padding-right: 10px;
+    width: 50px;
+  }
+  .admin .table table thead th:first-child {
+    border-top-right-radius: 10px;
+  }
+  .admin .table table thead th:last-of-type {
+    border-top-left-radius: 10px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .admin .actions,
+  .admin .table,
+  .admin .table table,
+  .admin .table table thead {
+    width: 100%;
+  }
+  .admin .actions {
+    margin-top: 2rem;
+    height: 40px;
+  }
+  .admin .actions .title {
+    gap: 2px;
+  }
+  .admin .actions .title h2 {
+    font-size: 15px;
+  }
+  .admin .actions .title img {
+    width: 16px;
+    height: 16px;
+  }
+  .admin .actions .buttons {
+    gap: 6px;
+  }
+  .admin .actions button {
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    padding: 5px;
+    font-size: 10px;
+  }
+  .admin .table {
+    border-radius: 12px;
+    height: fit-content;
+  }
+  .admin .table table thead {
+    height: 40px;
+  }
+  .admin .table table thead th {
+    font-size: 12px;
+    padding-right: 20px;
+    width: 50px;
+  }
+  .admin .table table thead th:first-child {
+    border-top-right-radius: 12px;
+  }
+  .admin .table table thead th:last-of-type {
+    border-top-left-radius: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1139px) {
+  .admin .actions,
+  .admin .table,
+  .admin .table table,
+  .admin .table table thead {
+    width: 100%;
+  }
+  .admin .table {
+    height: fit-content;
+  }
+}

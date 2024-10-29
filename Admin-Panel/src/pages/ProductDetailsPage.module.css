@@ -1,0 +1,107 @@
+.details {
+  display: flex;
+  min-height: 100vh;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.details img {
+  width: 300px;
+  height: 300px;
+  padding: 15px 25px;
+  background-color: var(--color-white);
+  border: 2px dashed var(--color-pictonBlue);
+  border-radius: 50px;
+  margin: 10px;
+  margin-right: 50px;
+}
+
+.info {
+  width: 100%;
+  border: 2px dashed var(--color-pictonBlue);
+  margin: 10px;
+  padding: 25px;
+  border-radius: 50px;
+}
+
+.info h3 {
+  color: var(--color-pictonBlue);
+  font-size: 1.5rem;
+  margin-bottom: 40px;
+}
+
+.description {
+  color: var(--color-gray);
+  width: 500px;
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+}
+
+.info .price {
+  display: flex;
+  align-items: center;
+}
+
+.info span svg {
+  color: var(--color-pictonBlue);
+  margin-right: 2px;
+}
+
+.info div {
+  display: flex;
+  align-items: center;
+  gap: 600px;
+}
+
+.info a {
+  display: flex;
+  align-items: center;
+  background-color: var(--color-pictonBlue);
+  padding: 10px;
+  color: var(--color-white);
+  border-radius: 12px;
+}
+
+.info a svg {
+  margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+  .details {
+    width: 100%;
+  }
+  .details img {
+    width: 100px;
+    height: 100px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    margin: 5px;
+    margin-right: 10px;
+  }
+  .info {
+    width: 100%;
+    padding: 0 25px;
+  }
+  .info h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  .description {
+    width: 100%;
+    font-size: 13px;
+    margin-bottom: 20px;
+    text-align: justify;
+  }
+  .info .price {
+    width: 100px;
+    font-size: 12px;
+  }
+  .info div {
+    gap: 50px;
+  }
+  .info a {
+    font-size: 10px;
+    padding: 5px;
+    border-radius: 7px;
+  }
+}

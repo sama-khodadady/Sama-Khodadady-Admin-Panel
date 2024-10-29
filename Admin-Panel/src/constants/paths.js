@@ -1,0 +1,16 @@
+export const paths = [
+  "src",
+  "assets",
+  "components",
+  "configs",
+  "constants",
+  "context",
+  "hooks",
+  "layout",
+  "pages",
+  "providers",
+  "router",
+  "services",
+  "styles",
+  "utils",
+];

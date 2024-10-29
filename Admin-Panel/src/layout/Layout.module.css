@@ -1,0 +1,80 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: var(--color-softBlue);
+  color: var(--color-white);
+  border-radius: 10px;
+  margin: 0 10px 40px;
+  padding: 10px 20px;
+}
+
+.header a {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.header div {
+  font-size: 1.6rem;
+  background-color: var(--color-white);
+  text-align: center;
+  color: var(--color-softBlue);
+  height: 35px;
+  width: 35px;
+  border-radius: 9px;
+  padding: 2px;
+  position: relative;
+}
+
+.header div span {
+  font-size: 0.8rem;
+  width: 20px;
+  height: 20px;
+  line-height: 22.5px;
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-radius: 50%;
+  position: absolute;
+  top: -10px;
+  right: -10px;
+}
+
+.footer {
+  text-align: center;
+  background-color: var(--color-softBlue);
+  padding: 20px;
+  margin: 10px;
+  margin-top: 30px;
+  border-radius: 10px;
+}
+
+.footer p {
+  color: var(--color-raisinBlack);
+  font-weight: 400;
+  margin-left: 5px;
+}
+
+.footer a {
+  color: var(--color-seasalt);
+  font-weight: 400;
+}
+
+@media (max-width: 768px) {
+  .header,
+  .footer {
+    padding: 10px;
+  }
+  .header a {
+    font-size: 1rem;
+  }
+  .header div {
+    font-size: 1.2rem;
+    height: 25px;
+    width: 25px;
+    border-radius: 5px;
+    padding: 2px;
+  }
+  .footer p {
+    font-size: 12px;
+  }
+}

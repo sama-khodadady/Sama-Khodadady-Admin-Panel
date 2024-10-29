@@ -1,0 +1,61 @@
+.notFound {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.notFound .svg {
+  position: relative;
+  display: flex;
+  height: 500px;
+  margin-top: 3rem;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFound .svg .number {
+  width: 500px;
+
+  filter: drop-shadow(0px 0px 100px var(--color-pictonBlue));
+}
+
+.notFound .svg .world {
+  width: 80px;
+  position: absolute;
+  right: 110px;
+  top: 100px;
+}
+
+.notFound .svg .spaceship {
+  position: absolute;
+  top: 50px;
+  left: 120px;
+  width: 100px;
+}
+
+.notFound .svg .astronout {
+  position: absolute;
+  width: 160px;
+  left: 110px;
+  bottom: 10px;
+}
+
+.notFound .actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.notFound .actions h2 {
+  color: var(--color-federalBlue);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+}
+
+.notFound .actions a {
+  padding: 15px 20px;
+  background-color: var(--color-federalBlue);
+  border-radius: 15px;
+  color: var(--color-white);
+}

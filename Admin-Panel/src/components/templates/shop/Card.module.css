@@ -1,0 +1,74 @@
+.card {
+  width: 220px;
+  height: fit-content;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-end;
+  border-radius: 20px;
+  border: 2px dashed var(--color-plantinum);
+}
+
+.card img {
+  width: 180px;
+  height: 220px;
+  margin-bottom: 20px;
+}
+
+.card h3 {
+  color: var(--color-pictonBlue);
+  font-size: 1.1rem;
+}
+
+.card p {
+  color: var(--color-suvaGray);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin: 10px 0 30px;
+}
+
+.actions {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.actions a {
+  font-size: 1.5rem;
+  height: 25px;
+  color: var(--color-softBlue);
+  cursor: pointer;
+}
+
+.actions div {
+  display: flex;
+  align-items: center;
+}
+
+.actions div span {
+  width: 20px;
+  text-align: center;
+  margin: 0 10px;
+}
+
+.actions div button {
+  background-color: var(--color-pictonBlue);
+  color: var(--color-white);
+  border: none;
+  font-size: 1.7rem;
+  height: 32px;
+  width: 32px;
+  line-height: 32px;
+  padding: 2px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@media (min-width: 425px) and (max-width: 768px) {
+  .card {
+    width: 230px;
+  }
+}

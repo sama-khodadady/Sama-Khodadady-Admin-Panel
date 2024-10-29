@@ -1,0 +1,36 @@
+.filter {
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.filter h4 {
+  font-size: 12px;
+}
+
+.filter input {
+  border: none;
+  background-color: var(--color-whiteSmoke);
+  border-radius: 3px;
+  padding: 3px 5px;
+  outline: none;
+  font-size: 12px;
+}
+
+.filter input::placeholder {
+  font-size: 12px;
+}
+
+.filter button {
+  border: none;
+  background-color: var(--color-softBlue);
+  color: var(--color-white);
+  border-radius: 3px;
+  font-size: 12px;
+  padding: 3px 0;
+}
+
+.filter button:active {
+  transform: scale(0.95);
+}

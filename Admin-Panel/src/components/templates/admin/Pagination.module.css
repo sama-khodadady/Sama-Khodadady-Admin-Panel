@@ -1,0 +1,84 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1.75rem;
+  width: 1140px;
+  border-radius: 30px;
+}
+
+.container .pagination {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.container .pagination p {
+  display: flex;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  line-height: 15px;
+  padding: 10px 15px 10px 15px;
+  border-radius: 42px;
+  border: 2px solid var(--color-suvaGray);
+  color: var(--color-suvaGray);
+  cursor: pointer;
+}
+
+.container .pagination p.selected {
+  border: none;
+  background-color: var(--color-softBlue);
+  color: var(--color-white);
+}
+
+.container .pagination .arrow {
+  font-size: 35px;
+  color: var(--color-softBlue);
+}
+
+@media (max-width: 425px) {
+  .container {
+    width: 100%;
+  }
+  .container .pagination {
+    gap: 5px;
+  }
+  .container .pagination p {
+    width: 15px;
+    height: 15px;
+    line-height: 2px;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 10px;
+  }
+  .container .pagination p.selected {
+    border: 2px solid var(--color-softBlue);
+  }
+  .container .pagination .arrow {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .container {
+    width: 100%;
+  }
+  .container .pagination {
+    gap: 8px;
+  }
+  .container .pagination p {
+    width: 17px;
+    height: 17px;
+    line-height: 2px;
+    padding: 8px;
+    border-radius: 50%;
+    font-size: 10px;
+  }
+  .container .pagination p.selected {
+    border: 2px solid var(--color-softBlue);
+  }
+  .container .pagination .arrow {
+    font-size: 20px;
+  }
+}

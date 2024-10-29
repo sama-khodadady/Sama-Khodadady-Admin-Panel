@@ -1,0 +1,142 @@
+.signup {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 30px auto;
+  width: 460px;
+  min-height: 596px;
+  border-radius: 40px;
+  border: 1px solid var(--color-plantinum);
+  background-color: var(--color-white);
+}
+
+.signup .signupHeader {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3.2rem;
+}
+
+.signup .signupHeader img {
+  width: 80px;
+  height: 84px;
+  margin-bottom: 8px;
+}
+
+.signup .signupHeader h3 {
+  color: var(--color-raisinBlack);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.signup .form {
+  display: flex;
+  flex-direction: column;
+  margin-top: 4rem;
+}
+
+.signup .form div {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.signup .form input {
+  width: 400px;
+  height: 53px;
+  padding: 22px 15px;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--color-whiteSmoke);
+  outline: none;
+}
+
+.signup .form input::placeholder {
+  color: var(--color-raisinBlack);
+  opacity: 50%;
+  font-size: 16px;
+  font-weight: 400px;
+}
+
+.signup .form span {
+  color: var(--color-red);
+  font-size: 10px;
+}
+
+.signup .form button {
+  width: 400px;
+  height: 53px;
+  padding: 10px;
+  margin-top: 2.35rem;
+  border: none;
+  border-radius: 15px;
+  background-color: var(--color-softBlue);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 20px;
+}
+
+.signup .form button:active {
+  transform: scale(0.95);
+}
+
+.signup .form a {
+  font-weight: 400;
+  font-size: 16px;
+  margin-top: 1.3rem;
+  color: var(--color-pictonBlue);
+}
+
+@media (max-width: 768px) {
+  .signup {
+    margin: 30px auto;
+    width: 320px;
+    min-height: fit-content;
+    border-radius: 15px;
+  }
+  .signup .signupHeader {
+    margin-top: 1rem;
+  }
+  .signup .signupHeader img {
+    width: 50px;
+    height: 54px;
+    margin-bottom: 5px;
+  }
+  .signup .signupHeader h3 {
+    font-size: 14px;
+  }
+  .signup .form {
+    width: calc(100% - 1.5rem);
+    margin: 1.5rem;
+  }
+  .signup .form div {
+    gap: 8px;
+  }
+  .signup .form input {
+    width: 100%;
+    height: 23px;
+    padding: 15px;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .signup .form input::placeholder {
+    font-size: 10px;
+  }
+  .signup .form span {
+    font-size: 7px;
+  }
+  .signup .form button {
+    width: 100%;
+    height: 23px;
+    line-height: 5px;
+    padding: 5px;
+    margin-top: 1.5rem;
+    border-radius: 5px;
+    font-size: 12px;
+  }
+  .signup .form a {
+    font-size: 10px;
+    margin-top: 1.3rem;
+  }
+}

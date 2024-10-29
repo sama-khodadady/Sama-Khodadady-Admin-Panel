@@ -1,0 +1,206 @@
+.search {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  width: 1140px;
+  height: 68px;
+  border-radius: 16px;
+  border: 1px solid var(--color-plantinum);
+  background-color: var(--color-white);
+}
+.search .searchBox {
+  width: 50%;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.search .searchBox input {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+}
+
+.search .searchBox input::placeholder {
+  font-weight: 400;
+  font-size: 16px;
+  color: var(--color-black);
+}
+
+.search .profile {
+  position: relative;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 15px;
+  width: 145px;
+  height: 52px;
+  gap: 10px;
+  border-right: 1px solid var(--color-plantinum);
+  z-index: 2;
+}
+
+.search .profile .profileImg {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid var(--color-plantinum);
+  opacity: 50%;
+}
+
+.search .profile div h3 {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--color-raisinBlack);
+}
+
+.search .profile div h6 {
+  font-size: 14px;
+  font-weight: 300;
+  color: var(--color-raisinBlack);
+}
+
+.search .profile .section {
+  position: absolute;
+  top: 100%;
+  left: -20px;
+  width: 165px;
+  height: fit-content;
+  z-index: 1;
+}
+
+.search .profile .section ul {
+  list-style-type: none;
+  margin-top: 1rem;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 10px;
+  border: 1px solid var(--color-plantinum);
+  backdrop-filter: blur(10px);
+}
+
+.search .profile .section ul .logout {
+  width: 10px;
+  height: 10px;
+  color: var(--color-red);
+}
+
+.search .profile .section li {
+  font-size: 11px;
+  font-weight: 300;
+  color: var(--color-red);
+  cursor: pointer;
+}
+
+@media (max-width: 425px) {
+  .search {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+  }
+  .search .searchBox {
+    gap: 0;
+  }
+  .search .searchBox input {
+    padding: 5px;
+    font-size: 12px;
+  }
+  .search .searchBox input::placeholder {
+    font-size: 10px;
+  }
+  .search .searchBox img {
+    width: 10px;
+  }
+  .search .profile {
+    height: 30px;
+    width: 100px;
+  }
+  .search .profile .profileImg {
+    width: 30px;
+    height: 30px;
+  }
+  .search .profile div h3,
+  .search .profile div h6 {
+    font-size: 10px;
+  }
+  .search .profile .section {
+    /* width: 100%; */
+    left: -10px;
+  }
+  .search .profile .section ul {
+    padding: 10px;
+    width: 100px;
+    margin-top: 12px;
+    border-radius: 5px;
+    gap: 5px;
+  }
+  .search .profile .section li {
+    font-size: 6px;
+  }
+  .search .profile .section ul .logout {
+    width: 6px;
+    height: 6;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .search {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+  }
+  .search .searchBox {
+    gap: 5px;
+  }
+  .search .searchBox input {
+    padding: 8px;
+    font-size: 14px;
+  }
+  .search .searchBox input::placeholder {
+    font-size: 12px;
+  }
+  .search .searchBox img {
+    width: 14px;
+  }
+  .search .profile {
+    height: 30px;
+    width: 120px;
+  }
+  .search .profile .profileImg {
+    width: 30px;
+    height: 30px;
+  }
+  .search .profile div h3,
+  .search .profile div h6 {
+    font-size: 12px;
+  }
+  .search .profile .section {
+    width: 100%;
+    left: -10px;
+  }
+  .search .profile .section ul {
+    padding: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+    gap: 5px;
+  }
+  .search .profile .section li {
+    font-size: 8px;
+  }
+  .search .profile .section ul .logout {
+    width: 8px;
+    height: 8px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1139px) {
+  .search {
+    width: 100%;
+  }
+}

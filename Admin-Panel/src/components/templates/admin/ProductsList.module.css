@@ -1,0 +1,92 @@
+.row td {
+  padding: 12px 50px 14px 0;
+  height: 38px;
+  color: var(--color-raisinBlack);
+  font-weight: 400;
+  font-size: 13px;
+}
+
+.row .actions {
+  padding-right: 0;
+  padding-left: 50px;
+  text-align: left;
+}
+
+.row .actions img {
+  width: 20px;
+  height: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.row .actions img:active {
+  transform: scale(0.95);
+}
+
+.row .actions input[type="checkbox"] {
+  width: 15px;
+  height: 15px;
+  margin-left: 3px;
+}
+
+@media (max-width: 425px) {
+  .row td {
+    padding: 5px 10px 8px 0;
+    height: 18px;
+    font-size: 8px;
+  }
+  .row .actions {
+    padding-right: 0;
+    padding-left: 10px;
+  }
+  .row .actions img {
+    width: 10px;
+    height: 10px;
+    margin-right: 5px;
+  }
+  .row .actions input[type="checkbox"] {
+    width: 8px;
+    height: 8px;
+    margin-left: 3px;
+  }
+}
+
+@media (min-width: 426px) and (max-width: 768px) {
+  .row td {
+    padding: 8px 20px 8px 0;
+    height: 20px;
+    font-size: 9px;
+  }
+  .row .actions {
+    padding-right: 0;
+    padding-left: 10px;
+  }
+  .row .actions img {
+    width: 12px;
+    height: 12px;
+    margin-right: 5px;
+  }
+  .row .actions input[type="checkbox"] {
+    width: 10px;
+    height: 10px;
+    margin-left: 3px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1139px) {
+  .row td {
+    padding: 8px 50px 8px 0;
+    height: 20px;
+    font-size: 12px;
+  }
+  .row .actions img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+  }
+  .row .actions input[type="checkbox"] {
+    width: 12px;
+    height: 12px;
+    margin-left: 3px;
+  }
+}
