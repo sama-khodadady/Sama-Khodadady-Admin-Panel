@@ -9,12 +9,26 @@
   padding: 10px 20px;
 }
 
-.header a {
+.header .title{
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+
+
+.header .title .shop {
   font-size: 1.5rem;
   font-weight: 600;
 }
 
-.header div {
+.header .title .admin{
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--color-white);
+}
+
+.header .checkout {
   font-size: 1.6rem;
   background-color: var(--color-white);
   text-align: center;

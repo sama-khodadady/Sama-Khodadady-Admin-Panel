@@ -11,9 +11,12 @@ function Layout({ children }) {
   return (
     <>
       <header className={styles.header}>
-        <Link to="/">فروشگاه</Link>
+        <div className={styles.title}>
+          <Link to="/" className={styles.shop}>فروشگاه</Link>
+          <Link to="/signup" className={styles.admin}>پنل مدیران</Link>
+        </div>
         <Link to="/checkout">
-          <div>
+          <div className={styles.checkout}>
             <PiShoppingCartSimpleBold />
             {!!state.itemsCounter && <span>{e2p(state.itemsCounter)}</span>}
           </div>
